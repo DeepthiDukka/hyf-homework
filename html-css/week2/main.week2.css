@@ -8,10 +8,15 @@ body {
     margin: 0;
 }
 /* Header - Title */
+
+header {
+    background-color: #fffafa;
+}
 #heading1 {
     font-size: 30px;
     background-color: #fffafa;
-    padding: 22px;
+    margin-top: 0px;
+    padding: 20px;
     text-align: center;
 }
 /* Sub-heading Title */
@@ -19,8 +24,9 @@ body {
     font-size: 15px;
     color: grey;
     font-weight: normal;
-    padding: 22px;
     text-align: center;
+    margin-top: 0px;
+    
 }
 
 /* Styling of navigation bar */
@@ -44,6 +50,7 @@ a.active {
 /*  styling of image */
 .image {
     width: 100%;
+    height: auto;
     padding: 15px;
 }
 
@@ -88,6 +95,14 @@ a.active {
 .right-logo-section {
     padding: 8px;
     font-size: 16px;
+}
+
+.logos {
+    display: flex;
+    width: 80%;
+    flex-wrap: row wrap;
+    font-size: 14px;
+    
 }
 
 /* Footer */

@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 30px;
+    margin: 0;
+}
+/* Header - Title */
+#heading1 {
+    font-size: 30px;
+    background-color: #fffafa;
+    padding: 22px;
+    text-align: center;
+}
+/* Sub-heading Title */
+#sub-heading {
+    font-size: 15px;
+    color: grey;
+    font-weight: normal;
+    padding: 22px;
+    text-align: center;
+}
+
+/* Styling of navigation bar */
+.navbar {
+    display: flex;
+}
+
+/* Styling of the navigation bar items */
+
+.navbar a {
+    color: black;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: left;
+}
+
+a.active {
+    color: grey;
+}
+/*  styling of image */
+.image {
+    width: 100%;
+    padding: 15px;
+}
+
+/* Content Section */
+.main {
+    margin: 0 auto;
+    display: flex;
+    flex-grow: 1;
+    flex: 50%;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+/* Column container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side {
+    flex: 50%;
+    padding: 20px;
+}
+
+
+
+.right-practical-section {
+    padding: 8px;
+    font-size: 16px;
+}
+
+.aside-left1-section {
+    padding: 8px;
+    font-size: 14px;
+}
+
+.aside-left2-section {
+    padding: 8px;
+    font-size: 14px;
+}
+
+.right-logo-section {
+    padding: 8px;
+    font-size: 16px;
+}
+
+/* Footer */
+.footer-order {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 5px;
+    background-color: rgb(132, 52, 236);
+    color: white;
+}
+
+li {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+.footer-list-headings {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+
+.footer-list-items {
+    padding-bottom: 5px;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .navbar,
+    .row,
+    .footer-order {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+}

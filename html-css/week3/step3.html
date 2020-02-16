@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign-up Form</title>
+  <link rel="stylesheet" href="main-week3.css">
+</head>
+
+<body>
+
+
+  <div class="flex-container">
+    <div class="bg-img">
+
+      <img src="images/image1.png" alt="logo of company x">
+      <h1>Sign up to yourcustomtailor.com</h1>
+      <h2>Step 3/4 - Time to learn about your preferences?</h2>
+      <!--- progress bar -->
+      <label for="progressvalue"><b>Progress</b></label>
+
+      <div>
+        <progress class="animation-bar" id="progressvalue" style="width: 70%" max="100" value="70"></progress>
+      </div>
+      <p>What kind of items are you interested in offers on?</p>
+
+      <!--- checkboxes -->
+      <div class="column">
+        <label for="apparal">Apparal</label>
+        <input type="checkbox" name="apparal" id="apparal" checked>
+
+        <label for="jewelry">Jewellery</label>
+        <input type="checkbox" name="jewellery" id="jewelry" checked>
+      </div>
+
+      <div class="column">
+        <label for="watches">Watches</label>
+        <input type="checkbox" name="watches" id="watches">
+
+
+        <label for="accessories">Accessories</label>
+        <input type="checkbox" name="accessories" id="accessories" checked>
+      </div>
+
+      <div class="column">
+        <label for="shoes">Shoes</label>
+        <input type="checkbox" name="shoes" id="shoes" checked>
+
+        <label for="handbags">Handbags</label>
+        <input type="checkbox" name="handbags" id="handbags">
+      </div>
+
+
+      <p>Choose the images that best resemble your style</p>
+
+
+      <!-- Photo Grid -->
+      <div class="row">
+        <div class="column">
+          <img src="images/apparel.png" style="width:100%" alt="image of apparel">
+          <label for="select-apparel">select</label>
+          <input type="checkbox" name="select" id="select-apparel" checked>
+
+          <img src="images/watch.png" style="width:100%" alt="image of watch">
+          <label for="select-watch">select</label>
+          <input type="checkbox" name="select" id="select-watch" checked>
+
+        </div>
+
+        <div class="column">
+
+          <img src="images/jewelry.png" style="width:100%" alt="image of jewelry">
+          <label for="select-jewelry">select</label>
+          <input type="checkbox" name="select" id="select-jewelry" checked>
+
+
+          <img src="images/accessories.png" style="width:100%" alt="image of accessories">
+          <label for="select-accessories">select</label>
+          <input type="checkbox" name="select" id="select-accessories" checked>
+
+        </div>
+
+        <div class="column">
+
+          <img src="images/shoes.png" style="width:100%" alt="image of shoes">
+          <label for="select-shoes">select</label>
+          <input type="checkbox" name="select" id="select-shoes" checked>
+          <img src="images/handbag.png" style="width:100%" alt="image of handbag">
+          <label for="select-handbag">select</label>
+          <input type="checkbox" name="select" id="select-handbag" checked>
+
+
+        </div>
+      </div>
+      <!--- buttons -->
+      <input type="submit" value="Next" onclick="window.location.href = 'https://htmlpreview.github.io/?https://github.com/DeepthiDukka/hyf-homework/blob/master/html-css/week3/step4.html';">
+      <input type="submit" value="Previous" onclick="window.location.href = 'https://htmlpreview.github.io/?https://github.com/DeepthiDukka/hyf-homework/blob/master/html-css/week3/Step2.html';" style="margin-right: 1rem">
+
+
+
+    </div>
+  </div>
+
+
+
+</body>

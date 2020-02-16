@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign-up Form</title>
+    <link rel="stylesheet" href="main-week3.css">
+</head>
+
+<body>
+    <!--- form -->
+    <form action="/action_page.php" style="border:0.0625rem solid #ccc">
+
+        <div class="flex-container">
+            <div class="bg-img">
+
+                <img src="images/image1.png" alt="logo of company x">
+                <h1>Sign up to yourcustomtailor.com</h1>
+                <h2>Step 2/4 - how can we reach you?</h2>
+
+                <!--- Progress bar -->
+                <label for="progressvalue"><b>Progress</b></label>
+                <div>
+                    <progress class="animation-bar" id="progressvalue" style="width: 70%" max="100"
+                        value="45"></progress>
+                </div>
+                <p>We will probably need to stay in touch somehow.Let us know how we can reach you?</p>
+
+                <!--- page content -->
+
+                <div>
+                    <label for="email" class="fieldnames">Email&#42;</label>
+                    <input type="text" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+
+                    <label for="phone" class="fieldnames">Phone&#42;</label>
+
+                    <input type="text" name="phone" id="phone" pattern="[-+]?[0-9]" required>
+                </div>
+
+                <div>
+
+                    <label for="pwd" class="fieldnames">Password:</label>
+                    <input type="text" id="pwd" name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 10 or more characters">
+                </div>
+
+
+                <div>
+
+                    <label for="re-enter-password" class="fieldnames">Re-enter Password&#42;</label>
+                    <input type="text" name="password" id="re-enter-password" minlength="10"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Please check, password does not match"
+                        required>
+                </div>
+
+                <h3>I want to signup for newsletter</h3>
+                <label for="weeklynews">Weekly news</label><!--- Radio buttons -->
+                <input type="radio" name="news" id="weeklynews" value="weeklynews" checked>
+                <label for="monthlynews">Monthly news</label>
+                <input type="radio" name="news" id="monthlynews" value="monthlynews">
+                <label for="no-news">Don't send me news</label>
+                <input type="radio" name="news" id="no-news" value="nonews">
+                <div>
+                    <input type="submit" value="Next" onclick="window.location.href = 'https://htmlpreview.github.io/?https://github.com/DeepthiDukka/hyf-homework/blob/master/html-css/week3/step3.html';">
+                    <input type="submit" value="Previous" onclick="window.location.href = 'https://htmlpreview.github.io/?https://github.com/DeepthiDukka/hyf-homework/blob/master/html-css/week3/week3homework.html';"
+                        style="margin-right: 1rem">
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </form>
+</body>

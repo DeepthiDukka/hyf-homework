@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign-up Form</title>
+    <link rel="stylesheet" href="main-week3.css">
+</head>
+
+<body>
+    <form action="/action_page.php" style="border:1px solid #ccc">
+
+        <div class="flex-container">
+            <div class="bg-img">
+
+                <img src="images/image1.png" alt="logo of company x">
+
+
+                <h1>Sign up to yourcustomtailor.com</h1>
+                <h2>Step 4/4 - Payment</h2>
+                <!--- progress bar -->
+                <label for="progressvalue"><b>Progress</b></label>
+                <div>
+                    <progress class="animation-bar" id="progressvalue" style="width: 70%" max="100"
+                        value="95"></progress>
+                </div>
+                <p>Please fill in your payment data</p>
+
+
+
+
+                <div>
+
+                    <label for="card-name" class="fieldnames">Name on card</label>
+                    <input type="text" id="card-name" name="card-name" required>
+                </div>
+                <div>
+
+                    <label for="card-type" class="fieldnames">Card type</label>
+                    <input type="text" id="card-type" name="card-type" list="typeOfcard" required>
+
+
+                    <datalist id="typeOfcard">
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">Mastercard</option>
+                        <option value="masterocard">Masterocard</option>
+                        <option value="dankort">Dankort</option>
+                    </datalist>
+                </div>
+                <div>
+
+                    <label for="creditcard-number" class="fieldnames">Credit card number</label>
+                    <input type="text" id="creditcard-number" name="creditcard-number" minlength="16" maxlength="16"
+                        required>
+                    <label for="firstname" class="fieldnames">First name</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div class="payment-element">
+
+                    <label for="expiry-month" class="fieldnames">Expiry month</label>
+                    <input id="expiry-month" type="text" pattern="([0-9]{2}[/]?){2}" style="width: 5%" required>
+                    <label class="fieldnames" for="expiry-year">Expiry year</label>
+                    <input id="expiry-year" type="text" pattern="([0-9]{2}[/]?){2}" style="width: 5%" required>
+                </div>
+                <div class="payment-element">
+
+                    <label for="cvv" class="fieldnames">CVV</label>
+                    <input type="text" id="cvv" name="cvv" style="width: 5%" maxlength="3" minlength="3">
+                </div>
+                <input type="submit" value="Submit" onclick="window.location.href = 'https://htmlpreview.github.io/?https://github.com/DeepthiDukka/hyf-homework/blob/master/html-css/week3/week3homework.html';"><!--- just for reference given the first page link-->
+                
+                <input type="submit" value="Previous" onclick="window.location.href = 'https://htmlpreview.github.io/?https://github.com/DeepthiDukka/hyf-homework/blob/master/html-css/week3/step3.html';"
+                    style="margin-right: 1rem">
+            </div>
+        </div>
+    </form>
+
+</body>

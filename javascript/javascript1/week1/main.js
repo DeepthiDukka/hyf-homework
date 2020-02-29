@@ -18,3 +18,19 @@ if (shouldShowResultsInDogYears = true) {
         console.log(`Your dog age will be + ${ humanYear} + human years old in 2027.`);
 
 }
+
+/*3. Housey pricey (A house price estimator)*/
+const volumeInMeters = [
+    [8 * 10 * 10],
+    [5 * 11 * 8]
+];
+const gardenSizeInM2 = [100, 70];
+const petersHousePrice = volumeInMeters[0] * 2.5 * 1000 + gardenSizeInM2[0] * 300;
+const juliaHousePrice = volumeInMeters[1] * 2.5 * 1000 + gardenSizeInM2[1] * 300;
+const peterAndJuliaHouseCost = [2500000, 1000000];
+const peterAndJuliaHousePaid = [
+    [peterAndJuliaHouseCost[0] - petersHousePrice],
+    [juliaHousePrice - peterAndJuliaHouseCost[1]]
+];
+console.log("Peter has paid " + peterAndJuliaHousePaid[0] + " more than the actual house cost.");
+console.log("Julia has paid " + peterAndJuliaHousePaid[1] + " less than the actual house cost.");

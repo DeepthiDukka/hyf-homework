@@ -34,3 +34,13 @@ const peterAndJuliaHousePaid = [
 ];
 console.log("Peter has paid " + peterAndJuliaHousePaid[0] + " more than the actual house cost.");
 console.log("Julia has paid " + peterAndJuliaHousePaid[1] + " less than the actual house cost.");
+
+/*4. Ez Namey (Startup name generator) Optional*/
+const firstWords = ["Easy", "Awesome", "Unique", "Spark", "Feature", "Tech", "Innovango", "Creative", "Coding", "ideal"];
+const secondWords = ["Corp", "Lead", "Stack", "Jovia", "Algorial", "Gig", "Powergic", "Quant", "Hyper", "Smart"];
+const wordsRandom = [firstWords[Math.floor(Math.random() * 10)],
+        [secondWords[Math.floor(Math.random() * 10)]]
+];
+const startupName = wordsRandom[0].concat(" ", wordsRandom[1]);
+const startupNameLength = startupName.length;
+console.log(`The startup name ${startupName} and the number of characters are ${startupNameLength}.`);

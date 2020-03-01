@@ -10,8 +10,8 @@ let dogYearOfBirth = 2019;
 let dogYearFuture = 2027;
 let humanYear = dogYearFuture - dogYearOfBirth;
 let shouldShowResultInDogYears = 7 * humanYear;
-
-if (shouldShowResultsInDogYears = true) {
+let shouldShowResultInDogYears = true;
+if (shouldShowResultsInDogYears) {
         console.log(`Your dog age will be ${shouldShowResultInDogYears} dog years old in 2027.`);
 
 } else {

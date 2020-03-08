@@ -38,9 +38,9 @@ function weatherWear(temperature) {
 
     if (temperature >= 0 && temperature <= 4) {
         return "Parka Jakke , Sweater and woolen trouser";
-    } else if (temperature >= 4 && temperature <= 8) {
+    } else if (temperature > 4 && temperature <= 8) {
         return "Jacket , Sweater and jeans";
-    } else if (temperature >= 8 && temperature <= 15) {
+    } else if (temperature > 8 && temperature <= 15) {
         return "Jean Jakke , t-shirt and Jeans";
     } else {
         return "shorts and t-shirts";

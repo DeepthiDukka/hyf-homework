@@ -22,7 +22,7 @@ function timeCalculation(){
     totalMinutes: Math.round((time - totalHours)*60)
   };
   return obj;
-};
+}
 const speed = 50;
 const distance = 432;
 const travelTime1 = timeCalculation();

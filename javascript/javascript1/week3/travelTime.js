@@ -14,7 +14,7 @@ function timeTakenForDestination(travelInformation) {
 const travelTime = timeTakenForDestination(travelInformation);
 console.log("Total travel time is : " + travelTime);
 
-//As per the feedback: implemented return object 
+//As per the feedback: implemented return object format
 const travelInformation = {
   speed: 50,
   destinationDistance: 432,

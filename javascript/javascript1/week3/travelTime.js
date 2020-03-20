@@ -12,17 +12,17 @@ function timeTakenForDestination(travelInformation) {
   return `${totalHours} hours and ${totalMinutes} minutes`
 };
 const travelTime = timeTakenForDestination(travelInformation);
-console.log("Total travel time is : " + travelTime);
+console.log(travelTime);
 
-//As per the feedback: implemented return object format
-const travelInformation = {
+//As per the feedback: implemented return object
+const travelDetails = {
   speed: 50,
   destinationDistance: 432,
 };
 
-function timeTakenForDestination(travelInformation) {
+function timeTakenForDestination(travelDetails) {
 
-  let time = travelInformation.destinationDistance / travelInformation.speed;
+  let time = travelDetails.destinationDistance / travelDetails.speed;
   let totalHours = Math.floor(time);
   let totalMinutes = Math.round((time - totalHours) * 60);
   let obj = {
@@ -31,5 +31,5 @@ function timeTakenForDestination(travelInformation) {
   };
   return obj;
 };
-const travelTime = timeTakenForDestination(travelInformation);
-console.log("Total travel time is : " + travelTime);
+const travelTime1 = timeTakenForDestination(travelDetails);
+console.log(travelTime1);

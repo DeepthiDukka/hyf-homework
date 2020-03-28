@@ -1,13 +1,15 @@
+const str = 'happy';
 
+function getCharacterFrequencies(target) {
+    const chars = {};
 
-function getCharacterFrequencies(str) {
-    
-    return str.split('').reduce( (prev, curr) => {
-      prev[curr] = prev[curr] ? prev[curr] + 1 : 1;
-      return prev;
-    }, {});
-    return result;
+    for (let char of target) {
+        chars[char] = chars[char] + 1 || 1;
+    }
 
-  };
-  
-  console.log(getCharacterFrequencies('happy'));
+    return chars;
+
+}
+
+console.log(getCharacterFrequencies(str));
+console.log('length of :', str, 'is', str.length);

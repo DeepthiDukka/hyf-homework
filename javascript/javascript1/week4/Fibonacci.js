@@ -18,7 +18,7 @@ function fib(number) {
         number3 = number2 + number1;
         number1 = number2;
         number2 = number3;
-        
+
     }
     return sequence; //return currentNumber
 }

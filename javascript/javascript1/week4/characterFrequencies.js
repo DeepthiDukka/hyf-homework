@@ -17,7 +17,7 @@ function getFrequency(string) {
 
 }
 console.log(getFrequency(string));
-console.log('length of the string:', str, 'is', str.length);
+console.log('length of the string:', string, 'is', string.length);
 
 
 

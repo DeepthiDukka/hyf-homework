@@ -19,7 +19,7 @@ function getFrequency(string) {
 console.log(getFrequency(string));
 console.log('length of the string:', string, 'is', string.length);
 
-// other method
+// other method using reduce
 const str = 'happy';
 
 function getCharacterFrequencies(target) {

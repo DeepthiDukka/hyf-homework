@@ -12,10 +12,10 @@ let eventList = 'What am I doing this week';
 function getReply(command) {
 
     // 1. To save the person's name and returning nice to meet you along the person's name
-    if (command.startsWith('Hello') && command.includes('name')) {
-        let commandArray = command.split(' ')
-        let name = commandArray[commandArray.length - 1]
-        names.push(name)
+    if (command.includes('Hello my name') && command.includes('name')) {
+        const commandArray = command.split(' ')
+        const name = commandArray[commandArray.length - 1]
+        names.push(name);
         return `Nice to meet you ${names[names.length -1]}`;
     }
 
@@ -50,7 +50,9 @@ function getReply(command) {
     //Removing things from todo
     if (command.startsWith('Remove') && command.endsWith('todo')) {
         let removeTodoWord = command.split(' ');
+        let itemToBeRemoved = todo.indexOf ('fishing');
         let wordToRemove = removeTodoWord[1]
+        todo.splice(itemToBeRemoved,1);
         return `${wordToRemove} removed from your todo`
     }
     //Logging out todo
@@ -108,6 +110,7 @@ if (command.startsWith('What is') && typeof(command[2] = "number") && typeof(com
 
 console.log(getReply('What is my name'))
 console.log(getReply('Hello my name is Benjamin'))
+console.log(getReply('Hello my name is Benjamin'))
 console.log(getReply('What is my name'))
 console.log(getReply('What day is it today'))
 console.log(getReply('Add football to my todo'))
@@ -117,6 +120,6 @@ console.log(getReply('Add gym to my todo'))
 console.log(getReply('What is on my todo'))
 console.log(getReply('My favorite dish is Rissoto'))
 console.log(getReply('What is my favorite dish'))
-console.log(getReply('Set a timer for 5 minute'))
+console.log(getReply('Set a timer for 5 minutes'))
 console.log(getReply('Add conference the 3/5/2019 to my calendar'))
 console.log(getReply('What am I doing this week'))

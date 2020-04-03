@@ -7,7 +7,9 @@ body {
     box-sizing: border-box;
 }
 
-body, h1, h2 {
+body,
+h1,
+h2 {
     margin: 0;
 }
 
@@ -30,7 +32,8 @@ header .wrapper {
     position: relative;
 }
 
-header .wrapper h1, header .wrapper h2 {
+header .wrapper h1,
+header .wrapper h2 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -42,12 +45,15 @@ header .wrapper h2 {
 
 /*#FF813F*/
 
-section.table-view-control, section.products, section.cart {
+section.table-view-control,
+section.products,
+section.cart {
     max-width: 800px;
     margin: 0 auto;
 }
 
-section.table-view-control, section.products {
+section.table-view-control,
+section.products {
     margin: 24px auto 12px;
     background-color: white;
     box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5);
@@ -58,7 +64,8 @@ section.table-view-control {
     padding: 12px;
 }
 
-section.table-view-control>div, section.table-view-control .filters>div {
+section.table-view-control>div,
+section.table-view-control .filters>div {
     margin-bottom: 24px;
 }
 
@@ -81,7 +88,8 @@ section.products>ul>li:nth-child(odd) {
     background-color: #f0f0f0;
 }
 
-section.products li div, section.products li button {
+section.products li div,
+section.products li button {
     margin-right: 12px;
     width: 100px;
 }

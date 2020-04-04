@@ -1,6 +1,6 @@
 "use strict";
 
-let names = [];
+let names = '';
 let whoAmI = 'What is my name';
 let day = 'What day is it today';
 let todo = [];
@@ -14,14 +14,14 @@ function getReply(command) {
     // 1. To save the person's name and returning nice to meet you along the person's name
     if (command.includes('Hello my name') && command.includes('name')) {
         const commandArray = command.split(' ')
-        const name = commandArray[commandArray.length - 1]
-        names.push(name);
-        return `Nice to meet you ${names[names.length -1]}`;
+        names = commandArray[commandArray.length - 1]
+        
+        return `Nice to meet you ${names}`;
     }
 
     //If you ask for your name and you have introduced yourself you'll get your name
     if (command === whoAmI && names.length !== 0) {
-        return `Your  ${names[names.length -1]}`;
+        return `Your  ${names}`
     }
     //If you ask for your name without introducing yourself
     if (command === whoAmI && names.length === 0) {
@@ -109,8 +109,7 @@ if (command.startsWith('What is') && typeof(command[2] = "number") && typeof(com
 
 
 console.log(getReply('What is my name'))
-console.log(getReply('Hello my name is Benjamin'))
-console.log(getReply('Hello my name is Benjamin'))
+console.log(getReply('Hello my name is Benjamin Benjamin'))
 console.log(getReply('What is my name'))
 console.log(getReply('What day is it today'))
 console.log(getReply('Add football to my todo'))

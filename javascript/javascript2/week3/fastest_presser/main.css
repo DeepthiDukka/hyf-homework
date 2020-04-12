@@ -1,0 +1,148 @@
+body,
+* {
+    text-align: center;
+    margin-top: 0;
+    background-color: rgb(63, 89, 241);
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+    color: rgb(166, 250, 32);
+}
+
+h2 {
+    font-family: 'Pacifico', cursive;
+    color: rgb(166, 250, 32);
+    position: relative;
+    animation-name: Presser;
+    animation-duration: 5s;
+    animation-iteration-count: 2;
+}
+
+@keyframes Presser {
+    0% {
+        left: 5px;
+        top: 25px;
+        down: 25px;
+    }
+
+    5% {
+        left: 5px;
+        top: 25px;
+        down: 25px;
+    }
+}
+
+input,
+.start,
+.restart {
+    width: 12%;
+    background-color: rgb(112, 239, 248);
+    color: rgb(2, 2, 22);
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 30px;
+    height: 45px;
+    box-shadow: 0 3px #999;
+    box-sizing: border-box;
+}
+
+.start,
+.restart {
+    margin: 0 0 0 20px;
+}
+
+input:hover,
+.start:hover,
+.restart:hover {
+    background-color: rgb(236, 186, 209);
+    color: white;
+}
+
+.start:active,
+.restart:active {
+    background-color: plum;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+p,
+.won-l,
+.won-s {
+    font-size: 2rem;
+    color: black;
+    margin: 0;
+}
+
+.draw {
+    margin: 14px 0;
+    padding: 4px 0;
+}
+
+.s-l-keys {
+    display: inline-block;
+    border-top: 2px solid green;
+}
+
+.s-key {
+    float: left;
+    border-right: 2px solid green;
+}
+
+.l-key {
+    float: right;
+}
+
+canvas {
+    box-sizing: border-box;
+    width: 27rem;
+
+    height: 70%;
+}
+
+/* Media querry*/
+@media screen and (min-width:100px) and (max-width:760px) {
+
+    .s-key,
+    .s-l-keys {
+        border-right: none;
+        border-top: none;
+        float: none;
+        margin-bottom: 0;
+    }
+
+    .l-key {
+        border-top: 5px solid green !important;
+    }
+
+    .rotate {
+        padding: 10%;
+
+    }
+
+    /* h1 span:nth-child(2) {
+    -webkit-animation-delay: 0.1s;
+  } */
+
+    .draw {
+        margin: 20px 0;
+    }
+
+    .start,
+    .restart {
+        width: 30%;
+        margin: 0 0 10px 0;
+        display: flex;
+        flex-flow: column wrap;
+        height: 40px;
+        justify-content: center;
+    }
+
+    input {
+        float: right;
+        width: 35%;
+        margin: 10px 0;
+    }
+}

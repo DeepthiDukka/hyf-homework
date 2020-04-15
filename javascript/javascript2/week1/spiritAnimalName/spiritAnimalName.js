@@ -55,7 +55,7 @@ const generateButton = document.createElement('button');
 body.appendChild(generateButton);
 generateButton.textContent = "Generate new spirit animal";
 generateButton.addEventListener('click', function () {
-    const randomSpiritAnimalNames = spiritListAnimals[Math.floor(Math.random(spiritListAnimals) * 10)];
+    const randomSpiritAnimalNames = spiritListAnimals[Math.floor(Math.random(spiritListAnimals) * spiritListAnimals.size())];
     const generateInputText = input.value;
     if (generateInputText) {
         return para.textContent = `Name:${generateInputText.charAt(0).toUpperCase() + generateInputText.slice(1)}: ${generateInputText.charAt(0).toUpperCase() + generateInputText.slice(1)} - ${randomSpiritAnimalNames}`;

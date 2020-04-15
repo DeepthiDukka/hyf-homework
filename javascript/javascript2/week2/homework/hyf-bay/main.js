@@ -92,7 +92,7 @@ const searchValue = document.querySelector('div.search > input');
 searchValue.addEventListener('keyup', filterInput);
 
 function filterInput() {
-    const writtenInputText = searchValue.value;
+    const writtenInputText = searchValue.value.toLowerCase();
     const filterProducts = products.filter(product => product.name.toLowerCase().includes(writtenInputText));
     renderProducts(filterProducts);
 }

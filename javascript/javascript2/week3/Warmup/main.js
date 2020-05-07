@@ -92,8 +92,8 @@ function jokeCreator(shouldTellFunnyJoke, logFunnyJoke, logBadJoke) {
 
 }
 
-jokeCreator(true, function logFunnyJoke() {
-    console.log('Its a funny joke!');
+jokeCreator(true , () => {
+    console.log('Its a funny joke!')
 }, function logBadJoke() {
     console.log('Its is Bad!');
 });

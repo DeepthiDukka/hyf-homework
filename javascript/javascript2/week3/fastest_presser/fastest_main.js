@@ -34,23 +34,23 @@ const mainClick = clickButton.addEventListener("click", () => {
     // 3. Create an event listener so you can call a function when any key is pressed. Now grap the actual key that was pressed. Fx was it a j or an i. We are interested in s and l. Here google is your friend!
     // 4. Keep a counter for how many times l and s was pressed.  
 
-    let PressSCount = 0;
-    let lCount = 0;
+    let canvasS = 0;
+    let canvasL = 0;
 
     const isGameRunning = () => selectInput > 0 && timer > 0;
     const setup = document.body.addEventListener("keypress", event => {
         if (event.keyCode === 115 && isGameRunning()) {
             //keyCode supports all browsers, which supports all but internetexploral 9.0 only
-            PressSCount++;
-            document.querySelector(".s-clicks").textContent = PressSCount;
+            canvasS++;
+            document.querySelector(".s-clicks").textContent = canvasS;
         } else if (event.keyCode === 108 && isGameRunning()) {
-            lCount++;
-            document.querySelector(".l-clicks").textContent = lCount;
+            canvasL++;
+            document.querySelector(".l-clicks").textContent = canvasL;
         }
     });
     // 5.
     setTimeout(() => {
-        if (PressSCount > lCount) {
+        if (canvasS > canvasL) {
             var confettiSettings = {
                 target: "confetti-holder"
             };
@@ -58,7 +58,7 @@ const mainClick = clickButton.addEventListener("click", () => {
             confetti.render();
             document.querySelector(".won-s").textContent =
                 "Hurray! you won the game";
-        } else if (lCount > PressSCount) {
+        } else if (canvasL > canvasS) {
             var confettiSettings = {
                 target: "my-canvas"
             };
@@ -66,7 +66,7 @@ const mainClick = clickButton.addEventListener("click", () => {
             confetti.render();
             document.querySelector(".won-l").textContent =
                 `Hurray! you won the game`;
-        } else if (PressSCount === lCount && selectInput) {
+        } else if (canvasS === canvasL && selectInput) {
             let draw = document.querySelector(".draw");
             draw.textContent = "Game draw";
         }

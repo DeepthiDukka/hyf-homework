@@ -10,9 +10,9 @@ const func2 = () => {
 const func3 = () => {
     console.log('I am function3');
 }
-const arr = [func1(), func2(), func3()];
+const arr = [func1, func2, func3];
 arr.forEach((func) => {
-    return func;
+    func();
 })
 
 
@@ -30,6 +30,6 @@ myNormalFunction();
 
 //Create an object that has a key whose value is a function. Try calling this function.
 const object = {
-    key: myFunction()
-};
-object.key;
+    key: myFunction
+}
+object.key();

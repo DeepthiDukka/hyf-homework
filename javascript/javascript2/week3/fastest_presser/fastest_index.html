@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!--<canvas id="my-canvas">-->
+    <header>
+        <h1>Fastest Presser</h1>
+    </header>
+    <main>
+        <input type="number" placeholder="Set Seconds" min="1" max="100">
+        <button class="start">Start Game!</button>
+        <button class="restart">Restart!</button>
+        <p class="draw"></p>
+        <section class="s-l-keys">
+            <div class="s-key">
+                <canvas id='confetti-holder'></canvas>
+                <h2 class="rotates">Press S</h2>
+                <p class="s-clicks"></p>
+                <p class="won-s"></p>
+            </div>
+            <div class="l-key">
+                <canvas id="my-canvas"></canvas>
+                <h2 class="rotates">Press L</h2>
+                <p class="l-clicks"></p>
+                <p class="won-l"></p>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.13/dist/index.min.js"></script>
+    <script src="fastest_main.js"></script>
+    <script type="module" src="confetti.js"></script>
+
+
+</body>
+
+</html>

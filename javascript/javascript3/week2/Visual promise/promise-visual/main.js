@@ -45,6 +45,8 @@ function translateAllAtOnce() {
                 x: 400,
                 y: 20
             })),
+
+
     ]).then(() => console.log('All circles has been moved'));
 }
 

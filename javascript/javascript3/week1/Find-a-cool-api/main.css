@@ -1,0 +1,32 @@
+body {
+    margin: 5% 0;
+    text-align: center;
+    background-color: burlywood;
+}
+
+.img1 {
+    margin: 20px 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+}
+
+img:hover {
+    border: double 10px rgb(233, 231, 250);
+}
+
+button {
+    background-color: rgb(96, 204, 247);
+    color: darkblue;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 2em;
+    opacity: 0.6;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 1
+}

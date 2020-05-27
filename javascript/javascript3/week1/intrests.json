@@ -1,0 +1,24 @@
+
+[
+    {
+         "petType": "dog",
+         "name": "Eva",
+         "ageInYears": 3,
+         "food": ["potatoes","carrots","meat"],
+         "mood": ["happy","sad"]
+     },
+     {
+         "petType": "Cat",
+         "name": "Lisa",
+         "ageInYears": 2,
+         "food": "milk",
+         "mood": ["angry","quiet"]
+     },
+     {
+        "petType": "Pigeon",
+        "name": "Fery",
+        "ageInYears": 4,
+        "food": "grains",
+        "mood": ["joyful","quiet"]
+    }
+ ]

@@ -255,6 +255,14 @@ join review on meal.id = review.meal_id
 group by meal.title
 order by review_stars;
 
+SELECT *,AVG(review.stars)
+FROM meal
+INNER JOIN review
+ON meal.id = review.meal_id
+GROUP BY meal.id
+ORDER BY AVG(review.stars);
+
+
 
 
 

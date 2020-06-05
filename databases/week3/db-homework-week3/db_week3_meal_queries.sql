@@ -261,17 +261,3 @@ INNER JOIN review
 ON meal.id = review.meal_id
 GROUP BY meal.id
 ORDER BY AVG(review.stars);
-
-
-
-
-
-
-
-
-
-
-
-
-
-

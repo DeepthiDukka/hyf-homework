@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
 	const date = parseInt(req.query.createdAfter);
 	const limit = parseInt(req.query.limit);
 
-	if (maxPrice >= 0) {
+	if (maxPrice) {
 		meal = meals.filter((item) => item.price <= maxPrice);
 	} else if (title) {
 		meal = meals.filter((item) => item.title.toLowerCase().includes(title.toLowerCase()));
@@ -31,7 +31,6 @@ router.get("/", (req, res) => {
 		return res.json(meals)
 	}
 	meal.length > 0 ? res.json(meal) : res.status(404).send(`Error: Unable to fetch the request`);
-	444
 });
 
 module.exports = router;

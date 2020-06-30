@@ -5,14 +5,14 @@ const app = express();
 const port = 3000;
 
 app.get('/numbers/add', (req, res) => {
-    let sum = Number(req.query["first"]) + Number(req.query["second"]);
+    let sum = Number(req.query.first) + Number(req.query.second);
     res.send(`${sum}`);
 });
 
 // http://localhost:3000/numbers/add?first=3&second=7    //10
 
 app.get('/numbers/sub', (req, res) => {
-    let sub = Number(req.query["first"]) - Number(req.query["second"]);
+    let sub = Number(req.query.first) - Number(req.query.second);
     res.send(`${sub}`);
 });
 

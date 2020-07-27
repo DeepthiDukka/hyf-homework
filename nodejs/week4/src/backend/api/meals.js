@@ -14,14 +14,27 @@ router.get("/", async (request, response) => {
 });
 
 
-router.get("/:id", async function(req, res) {
+router.get("/:id", async function (req, res) {
   const meals = await knex("meal").select("*");
-//res.json(meals);
-	const mealsId = parseInt(req.params.id);
+
+  const availableReservationsMeal = await knex.sum("number_of_guests as guestSum")
+    .from("reservation")
+    .where({
+      meal_id: req.params.id
+    })
+
+  console.log({
+    availableReservationsMeal: availableReservationsMeal[0]['guestSum']
+  });
+
+  const mealsId = parseInt(req.params.id);
   const mealsIdOutput = meals.filter((item) => item.id == mealsId);
   console.log(mealsIdOutput);
-  mealsIdOutput.length > 0 ? res.json(mealsIdOutput) : res.status(404).send(`Error: Unable to fetch the request`);
-  
+  mealsIdOutput.length > 0 ? res.json({
+    meals: mealsIdOutput,
+    isSeatAvailable: availableReservationsMeal[0]['guestSum'] < mealsIdOutput[0].max_reservations
+  }) : res.status(404).send(`Error: Unable to fetch the request`);
+
 });
 
 module.exports = router;

@@ -16,13 +16,14 @@ router.get("/", async function (req, res) {
 // http://localhost:3000/api/reviews
 
 router.post("/", async function (req, res) {
+  // console.log({ body : req.body})
   const newReview = {
-    "id": req.params.id,
-    "title": req.query.title,
-    "description": req.query.description,
-    "meal_id": req.query.meal_id,
-    "stars": req.query.stars,
-    "created_date": req.query.created_date
+    // "id": req.params.id  || 1,
+    "title": req.body.title || "Default Title",
+    "description": req.body.description,
+    "meal_id": req.body.meal_id,
+    "stars": req.body.stars,
+    "created_date": new Date()
   }
   await knex("review").insert(newReview);
   res.send("The given review has been added");

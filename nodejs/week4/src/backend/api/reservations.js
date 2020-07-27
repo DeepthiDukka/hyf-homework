@@ -59,15 +59,27 @@ router.delete("/:id", async function (req, res) {
 });
 
 router.post("/", async function (req, res) {
-  const { meal_id, name, email, phonenumber } = req.body;
+  const {
+    meal_id,
+    name,
+    email,
+    phonenumber
+  } = req.body;
 
   if (!meal_id || !name || !email || !phonenumber) {
-      return res.send("All details are required");
+    return res.send("All details are required");
   }
 
-  knex.query("INSERT INTO reservations SET ?", { meal_id, name, email, phonenumber }, (err, results) => {
-      return res.send({ createdId: results.insertId });
+  knex.query("INSERT INTO reservations SET ?", {
+    meal_id,
+    name,
+    email,
+    phonenumber
+  }, (err, results) => {
+    return res.send({
+      createdId: results.insertId
+    });
 
   });
 });
-module.exports = router;  
+module.exports = router;

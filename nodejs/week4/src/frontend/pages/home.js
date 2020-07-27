@@ -27,6 +27,8 @@ window.handleHomeRequest = () => {
   <a href="meals" data-navigo>Meals</a>
   <a href="#about">About Us</a>
   <input type="text" class="search" placeholder="Search">
+  <ul id="autoSearch" style="display : none">
+  </ul>
 </div>
 
                   
@@ -67,17 +69,18 @@ window.handleHomeRequest = () => {
 
         const search = document.querySelector('.search');
         search.addEventListener('input', () => {
-          let searchedValue = search.value;
-          meals.innerHTML = meals.map(meal => {
-            if (meal.title.toUpperCase().includes(searchedValue.toUpperCase())) {
-              return `<li>
-                                  <img class="logo" src="images/${meal.title}.jpg" alt="picture of meal title">                         
-                                  <h3>${meal.title}</h3>
-                                  <h4><i class="fa fa-map-marker" style="font-size:24px;"></i>${meal.location}</h4><br>
-                                  <a href="meals" data-navigo>Go to meals</a>
-                                </li>`
-            }
-          }).join('')
+          const selectedMeal = meals.filter(el => el.title.toUpperCase().includes(search.value.toUpperCase()))
+          document.getElementById('autoSearch').style.display = 'block'
+          document.getElementById('autoSearch').innerHTML = `
+          <li>
+          <a href="meal/${selectedMeal[0].id}">
+                                          <img class="logo" src="images/${selectedMeal[0].title}.jpg" alt="picture of meal title">                         
+                                          </a>
+                                          <h3>${selectedMeal[0].title}</h3>
+                                          <h4><i class="fa fa-map-marker" style="font-size:20px;"></i>${selectedMeal[0].location}</h4>
+                                          
+                                        </li>`
+
         })
       })
   }

@@ -1,9 +1,9 @@
 window.handleMealsRequest = () => {
-    function renderMeals() {
-        fetch("/api/meals")
-            .then(response => response.json())
-            .then(meals => {
-                document.head.innerHTML = `
+  function renderMeals() {
+    fetch("/api/meals")
+      .then(response => response.json())
+      .then(meals => {
+        document.head.innerHTML = `
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
               <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -15,7 +15,7 @@ window.handleMealsRequest = () => {
                   <title>Meals</title>
                   `;
 
-                document.body.innerHTML = `
+        document.body.innerHTML = `
                   <header>
                       <ul>
                       <div class="centeredMealsHeading">Healthy home meals</div>
@@ -44,9 +44,9 @@ window.handleMealsRequest = () => {
             </footer>
               `;
 
-                let mealsDiv = document.querySelector('.meals ul')
-                mealsDiv.innerHTML = meals.map(meal => {
-                    return `<li class='col-lg'>
+        let mealsDiv = document.querySelector('.meals ul')
+        mealsDiv.innerHTML = meals.map(meal => {
+          return `<li class='col-lg'>
                           <img class="mealImage" src="images/${meal.title}.jpg" alt="image of meal title">
                           <h3>${meal.title}</h3>
                           <p>${meal.description}</p>
@@ -54,39 +54,9 @@ window.handleMealsRequest = () => {
                           <h4><i class="fa fa-map-marker" style="font-size:24px;"></i>  ${meal.location}</h4>
                           <button class='btn btn-primary'><a href="meal/${meal.id}">Reserve</a></button><br><br>
                       </li>`
-                }).join('')
+        }).join('')
 
-
-
-
-
-
-
-
-            })
-    }
-    renderMeals()
+      })
+  }
+  renderMeals()
 }
-/*
-window.handleMealsRequest = () => {
-
-  let mealsDiv = document.querySelector('.meals ul');
-            mealsDiv.innerHTML = meals.map(meal => {
-                return `<li>
-                          <img class="logo" src="https://source.unsplash.com/600x300?${meal.title}" alt="picture of meal title">
-                          <h3>${meal.title}</h3><br>
-                          <h4><i class="fa fa-map-marker" style="font-size:24px;"></i>  ${meal.location}</h4>
-                          <a href="meals" data-navigo>Go to meals</a>
-                        </li>`
-            }).join('')
-
-  document.body.innerHTML = `
-  <h1>Meals</h1>`;
-
-  // make sure the backend api works before working with it here
-  fetch("/api/meals")
-    .then((response) => response.json())
-    .then(renderMeals);
-};
-
-*/

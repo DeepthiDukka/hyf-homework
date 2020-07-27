@@ -1,12 +1,10 @@
 window.handleMealRequest = async params => {
     const reviews = await fetch(`/api/reviews/`);
-    console.log(reviews);
     const reviewsData = await reviews.json()
-    console.log(reviewsData);
     fetch(`/api/meals/${params.id}`)
         .then(response => response.json())
         .then(meal => {
-            meal.forEach((meal) => {
+            meal.meals.forEach((meal) => {
                 meal.reviews = reviewsData.filter((reviewsData) => meal.id === reviewsData.meal_id);
                 console.log(meal);
                 return meal;
@@ -20,7 +18,7 @@ window.handleMealRequest = async params => {
                 <link rel="icon" href="images/logo4.png">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Oleo+Script&family=Parisienne&display=swap" rel="stylesheet">
-                               <title>"${meal.title}"</title>`;
+                               <title>"${meal.meals[0].title}"</title>`;
             document.body.innerHTML = `
                 <header>
                     <ul>
@@ -34,25 +32,27 @@ window.handleMealRequest = async params => {
                     </ul>
                 </header>
                 <div class='mealContainer'>
-                        <ul class='row'>
-                            <li class='col'>
-                                 <h1 class='mealHeading'>${meal[0].title}</h1>
-                                <img class="logo" src="../images/${meal[0].title}.jpg" alt="picture of meal title">
-                                <div>ID: ${meal[0].id}</div><br>
-                                <div>Description: ${meal[0].description}</div><br>
-                                <div><i class="fa fa-map-marker" style="font-size:24px;"></i>  ${meal[0].location}</div><br>
-                                <div>Price: ${meal[0].price}DKK</div><br>
-                                <div> Review: ${Object.values(meal[0].reviews[0].title).join("")}</div><br>
-                                <div> Stars: ${meal[0].reviews[0].stars}</div><br>
-                                <div> Review Description: ${Object.values(meal[0].reviews[0].description).join("")}</div><br>
-                                
-                            </li>
-                            <li class='col reserveMeal'>
+               
+                        <div class='row'>
+                            <div class='col-sm-12 col-md-12 col-lg-4 col-xl-4'>
+                                 <h1 class='mealHeading'>${meal.meals[0].title}</h1>
+                                <img class="mealsLogo" src="../images/${meal.meals[0].title}.jpg" alt="picture of meal title">
+                                <div>ID: ${meal.meals[0].id}</div>
+                                <div>Description: ${meal.meals[0].description}</div>
+                                <div><i class="fa fa-map-marker" style="font-size:24px;"></i>  ${meal.meals[0].location}</div>
+                                <div>Price: ${meal.meals[0].price}DKK</div>
+                                <div class="mealReview">
+                                <div> Review: ${Object.values(meal.meals[0].reviews[0].title).join("")}</div>
+                                <div> Stars: ${meal.meals[0].reviews[0].stars}</div>
+                                <div> Review Description: ${Object.values(meal.meals[0].reviews[0].description).join("")}</div>
+                                </div>
+                            </div>
+                            <div class='col-sm-12 col-md-12 col-lg-4 col-xl-3 reserveMeal'>
                                 <h3>Reserve Meal</h3>  
                                 <div class='add-reservation'>
                                     <form method="POST" id="createReservation">
                                         <label for="mealid">Meal Id:</label>
-                                        <input id="mealid" name="mealid" value="${meal[0].id}">
+                                        <input id="mealid" name="mealid" value="${meal.meals[0].id}">
                                         <label for="name">Name:</label>
                                         <input type="text" id="name" name="name">
                                         <label for="email">Email:</label>
@@ -65,13 +65,13 @@ window.handleMealRequest = async params => {
                                     <div class='error'></div>
                                     <button class='btn btn-primary' onclick=postReservation()>Confirm</button>
                                 </div>
-                            </li>
-                            <li class='col reviewMeal'>                                
+                            </div>
+                            <div class='col-sm-12 col-md-12 col-lg-4 col-xl-3 reviewMeal'>                                
                                <h3>Review for Meal</h3>
                                 <div class='add-review'>
                                     <form method="POST" id="createReview">
                                         <label for="mealid">Meal Id:</label>
-                                        <input id="mealid" name="mealid" value="${meal[0].id}">
+                                        <input id="mealid" name="mealid" value="${meal.meals[0].id}">
                                         <label for="name">Name:</label>
                                         <input type="text" id="name1" name="name">
                                         <label for="description">Description:</label>
@@ -79,11 +79,11 @@ window.handleMealRequest = async params => {
                                         <label for="stars">Stars:</label>
                                         <input type="number" id="stars" name="stars" value="" min="1" max="5" required>
                                     </form>
-                                    <div class='error'></div>
+                                    <div class='error1'></div>
                                     <button class='btn btn-primary' onclick=postReview()>Confirm</button>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div> 
                 </div>
             
@@ -97,40 +97,6 @@ window.handleMealRequest = async params => {
         });
 
 }
-
-
-    // const addReservation = document.querySelector('.add-reservation')
-    // addReservation.innerHTML = `<form method="POST" id="createReservation">
-    //                                 <label for="mealid">Meal Id:</label><br>
-    //                                 <input id="mealid" name="mealid" value="${meal[0].id}"><br><br>
-    //                                 <label for="name">Name:</label><br>
-    //                                 <input type="text" id="name" name="name"><br><br>
-    //                                 <label for="email">Email:</label><br>
-    //                                 <input type="text" id="email" name="email" value="" placeholder="example@domain.com"><br><br>
-    //                                 <label for="phonenumber">Phone number:</label><br>
-    //                                 <input type="text" id="phonenumber" name="phonenumber" value=""><br><br>
-    //                                 <label for="number_of_guests">Number_of_guests:</label><br>
-    //                                 <input type="text" id="number_of_guests" name="number_of_guests" value=""><br><br>
-    //                             </form>
-    //                             <div class='error'></div>
-    //                             <button onclick=postReservation()>Confirm</button><br>
-    // `
-
-
-    // const addReview = document.querySelector('.add-review')
-    // addReview.innerHTML = `<form method="POST" id="createReview">
-    //                                 <label for="mealid">Meal Id:</label><br>
-    //                                 <input id="mealid" name="mealid" value="${meal[0].id}"><br></br>
-    //                                 <label for="name">Name:</label><br>
-    //                                 <input type="text" id="name" name="name"><br>
-    //                                 <label for="description">Description:</label><br>
-    //                                 <input type="text" id="description" name="description" value=""><br><br>
-    //                                 <label for="stars">Stars:</label><br>
-    //                                 <input type="number" id="stars" name="stars" value="">
-    //                             </form>
-    //                             <div class='error'></div>
-    //                             <button onclick=postReview()>Confirm</button>
-    // `
 
 
 const postReservation = () => {
@@ -162,7 +128,7 @@ const postReservation = () => {
             .then(response => {
                 if (response.status == '200') {
                     alert('Reservation success')
-                    
+                    document.getElementById('createReservation').reset();
                 } else {
                     alert('Error during reservations');
                 }
@@ -172,14 +138,14 @@ const postReservation = () => {
 
 
 const postReview = () => {
-    document.querySelector('.error').textContent = '';
+    document.querySelector('.error1').textContent = '';
     const mealid = document.getElementById('mealid').value;
     const name = document.getElementById('name1').value;
     const description = document.getElementById('description').value;
     const stars = document.getElementById('stars').value;
 
     if (name == '' || description == '' || stars == '') {
-        document.querySelector('.error').textContent = 'Please enter all fields'
+        document.querySelector('.error1').textContent = 'Please enter all fields'
     } else {
         fetch(`/api/reviews`, {
                 headers: {
@@ -197,10 +163,10 @@ const postReview = () => {
             .then(response => {
                 if (response.status == '200') {
                     alert('Review has been submitted')
+                    document.getElementById('createReview').reset();
                 } else {
                     alert('Error during review submission');
                 }
             })
     }
 }
-

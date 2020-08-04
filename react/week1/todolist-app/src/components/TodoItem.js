@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Item from './Item';
 
 export default class TodoItem extends Component {
     
@@ -21,17 +22,15 @@ export default class TodoItem extends Component {
             }
     ]};        
 
-render() { 
-    return (
-			<ul>             
-        {this.state.todoListItems.map((todo) => (
-                <li key={todo.id}> {todo.description}, {todo.deadlineDate}</li>
-           
-		))}
-		
-			</ul>
-        
-     );
-
-}
-}
+    render() { 
+        const TodoList = this.state.todoListItems.map((todo) => (
+            <Item
+                key={todo.id}
+                description={todo.description}
+                deadlineDate={todo.deadlineDate}
+            />
+        ));
+        return <ul>{TodoList}</ul>;
+    
+    }
+    }

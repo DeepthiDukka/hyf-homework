@@ -1,28 +1,21 @@
 const express = require("express");
-const app = express();
 const router = express.Router();
 const knex = require("../database");
 
-app.use(express.json());
-app.use(express.urlencoded({
-  extended: true
-}));
-
 router.get("/", async function (req, res) {
-  const totalReservations = await knex.select("*").table("reservation");
-  res.send(totalReservations);
+  const reservations = await knex.select("*").table("reservation");
+  res.send(reservations);
 });
 
 // http://localhost:3000/api/reservations
 
 router.post("/", async function (req, res) {
-  const newReservation = {
-    "id": req.body.id,
-    "number_of_guests": req.body.number_of_guests,
-    "meal_id": req.body.meal_id,
-    "created_date": req.body.created_date
-  }
-  await knex("reservation").insert(newReservation);
+  const {
+    number_of_guests,
+    meal_id,
+    created_date
+  } = (req.body);
+  await knex("reservation").insert(req.body);
   res.send("The new reservation has been added");
 });
 

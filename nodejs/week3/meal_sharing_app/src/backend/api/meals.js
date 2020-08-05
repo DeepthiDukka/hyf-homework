@@ -1,15 +1,12 @@
 const express = require("express");
-const app = express();
 const router = express.Router();
 const knex = require("../database");
-
+const app = express();
+//GET api/meals/ query parameters
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
-
-//GET api/meals/ query parameters
-
 router.get("/", async function (req, res) {
   const {
     maxPrice,
@@ -18,10 +15,12 @@ router.get("/", async function (req, res) {
     createdAfter,
     limit
   } = req.query;
-  const mealTitles = await knex.select("*").table("meal");
+  const queriedMeals = await knex.select("*").table("meal");
 
-  if (Object.keys(req.query).length === 0) {
-    res.send(mealTitles);
+  const requestHasNoQueryParameters = Object.keys(req.query).length === 0;
+  if (requestHasNoQueryParameters ) {
+  
+    res.send(queriedMeals);
 
   }
 
@@ -31,24 +30,24 @@ router.get("/", async function (req, res) {
       const maxPriceMeals = await knex.select("*").table("meal")
         .where("price", "<", maxPrice);
       console.log(maxPriceMeals);
-      res.send(maxPriceMeals);
+      res.json(maxPriceMeals);
     } catch (error) {
-      error;
+      res.send("error");
     }
   } else if (title) {
     try {
 
-      const titles = await knex.select("*").table("meal")
+      const queriedMeals = await knex.select("*").table("meal")
         .where("title", "like", `%${title}%`);
-      console.log(titles);
-      res.send(titles);
+      console.log(queriedMeals);
+      res.send(queriedMeals);
     } catch (error) {
-      error;
+      res.send("error");
     }
   } else if (availableReservations === 'true') {
     try {
       
-      const availableReservationsMeal = await knex.select("*")
+      const availableReservationsMeals = await knex.select("*")
         .sum({
           sumTotal: "reservation.number_of_guests"
         })
@@ -58,21 +57,21 @@ router.get("/", async function (req, res) {
         })
         .groupBy("meal.title")
         .having("sumTotal", ">", "max_reservations")
-      console.log(availableReservationsMeal);
-      res.send(availableReservationsMeal);
+      console.log(availableReservationsMeals);
+      res.send(availableReservationsMeals);
 
     } catch (error) {
-      error;
+      res.send("error");
     }
   } else if (createdAfter) {
     try {
 
-      const datecreated = await knex.select("*").table("meal")
+      const mealCreatedDate = await knex.select("*").table("meal")
         .where("created_date", "<", createdAfter);
-      console.log(datecreated);
-      res.send(datecreated);
+      console.log(mealCreatedDate);
+      res.send(mealCreatedDate);
     } catch (error) {
-      error;
+      res.send("error");
     }
   } else if (limit) {
     try {
@@ -82,7 +81,7 @@ router.get("/", async function (req, res) {
       console.log(limitMeals);
       res.send(limitMeals);
     } catch (error) {
-      error;
+      res.send("error");
     }
   }
 });
@@ -91,39 +90,39 @@ router.get("/", async function (req, res) {
 // http://localhost:3000/api/meals
 
 router.post("/", async function (req, res) {
-  const newMeal = {
-    "id": req.body.id,
-    "title": req.body.title,
-    "description": req.body.description,
-    "location": req.body.location,
-    "when": req.body.when,
-    "max_reservations": req.body.max_reservations,
-    "price": req.body.price,
-    "created_date": req.body.created_date
-  }
-  await knex("meal").insert(newMeal);
+  const {
+    title,
+    description,
+    location,
+    when,
+    max_reservations,
+    price,
+    created_date
+  } = (req.body);
+  
+  await knex("meal").insert(req.body);
   res.send("The new meal has been added");
 });
 
 
 router.get("/:id", async function (req, res) {
-  const thisMealId = await knex("meal").where({
+  const getMealWithId = await knex("meal").where({
     "id": req.params.id
   });
-  res.send(thisMealId);
+  res.send(getMealWithId);
 });
 
 //http://localhost:3000/api/meals/1
 
 router.put("/:id", async function (req, res) {
-  const thisUpdatedMealId = await knex("meal")
+  const UpdateMealId = await knex("meal")
     .where({
       "id": req.params.id
     })
     .update({
       "title": req.query.title
     });
-  res.send(`this meal ${thisUpdatedMealId} has been updated `);
+  res.send(`this meal ${UpdateMealId} has been updated `);
 });
 
 // http://localhost:3000/api/meals/5?title=delicious-homemade-food

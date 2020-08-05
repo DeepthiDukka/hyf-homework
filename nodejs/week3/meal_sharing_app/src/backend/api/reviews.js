@@ -1,12 +1,6 @@
 const express = require("express");
-const app = express();
 const router = express.Router();
 const knex = require("../database");
-
-app.use(express.json());
-app.use(express.urlencoded({
-  extended: true
-}));
 
 router.get("/", async function (req, res) {
   const totalReviews = await knex.select("*").table("review");
@@ -31,14 +25,14 @@ router.post("/", async function (req, res) {
 //http://localhost:3000/api/reviews?title=russian&description=super&meal_id=6&stars=5&created_date=2020-06-27
 
 router.get("/:id", async function (req, res) {
-  const thisReviewId = await knex("review").where({
+  const ReviewWithId = await knex("review").where({
     "id": req.params.id
   });
-  res.send(thisReviewId);
+  res.send(ReviewWithId);
 });
 
 router.put("/:id", async function (req, res) {
-  const thisId = await knex("review")
+  const updateReviewId = await knex("review")
     .where({
       "id": req.params.id
     })
@@ -51,7 +45,7 @@ router.put("/:id", async function (req, res) {
 // http://localhost:3000/api/reviews/5?title=simply-superb
 
 router.delete("/:id", async function (req, res) {
-  const thisId = await knex("review")
+  const deleteReviewId = await knex("review")
     .where({
       "id": req.params.id
     }).del();

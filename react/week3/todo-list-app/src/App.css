@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+  background-color: rgb(119, 211, 240);
+  min-height: 500px;
+  width: 700px;
+  margin: 20px auto;
+}
+
+body {
+  background-color: rgba(173, 234, 247, 0.932);
+}
+
+.delete-button {
+  background-image: url(//raw.githubusercontent.com/primer/octicons/master/icons/trash-24.svg);
+  background-repeat: no-repeat;
+  padding-left: 25px;
+  height: 35px;
+}
+
+input {
+  padding: 5px;
+  margin: 5px;
+}
+
+.FancyBorder {
+  border: 1px solid black;
+  margin-top: 1px;
+  margin-right: 25px;
+}
+
+li {
+  color: #fff;
+  width: 540px;
+  margin: 5px auto;
+  padding-right: 20px;
+  height: 50px;
+  background-color: #8b63f8;
+  border-radius: 5px;
+  word-spacing: 2px;
+}
+
+label {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+button {
+  background-color: #2f76f8;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 7px 23px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+input[type="checkbox"]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #e9e9e9;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}

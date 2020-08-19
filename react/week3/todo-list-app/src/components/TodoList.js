@@ -142,7 +142,8 @@ class Todo extends React.Component {
 
 function fetchTodo() {
   const URL = `https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw`;
-  return fetch(URL).then((response) => response.json());
+  return fetch(URL).then((response) => response.json())
+  .catch(error => console.log('failed to fetch the request', error))
 }
 
 class TodoList extends React.Component {
@@ -182,8 +183,8 @@ class TodoList extends React.Component {
   };
 
   handleDeadlineChange = (event) => {
-    let currentDate = new Date();
-    let selectedDate = new Date(event.target.value);
+    const currentDate = new Date();
+    const selectedDate = new Date(event.target.value);
     if (selectedDate < currentDate) {
       alert("Your selected date is in the past");
     }

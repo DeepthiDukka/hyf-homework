@@ -1,5 +1,7 @@
 Onions
 beetroot
-Pumpkin
+Potato
 Brinjal
 Squash
+Cauliflower
+Broccoli

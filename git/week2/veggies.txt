@@ -1,6 +1,7 @@
 Onions
 beetroot
 Potato
+Pumpkin1
 Brinjal
 Squash
 Cauliflower

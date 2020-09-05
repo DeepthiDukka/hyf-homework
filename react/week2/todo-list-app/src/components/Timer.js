@@ -10,10 +10,10 @@ export default class Timer extends Component {
   }
 
   componentDidMount() {
-    this.counter = setInterval(this.timer, 1000);
+    this.setIntervalId = setInterval(this.timer, 1000);
   }
   componentWillUnmount() {
-    clearInterval(this.counter);
+    clearInterval(this.setIntervalId);
   }
 
   timer() {

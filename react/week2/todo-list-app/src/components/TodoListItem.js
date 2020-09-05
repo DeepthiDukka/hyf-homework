@@ -36,17 +36,17 @@ export default class TodoList extends Component {
     });
   };
 
-  deleteTodo = (index) => {
+  deleteTodo = (itemId) => {
     let todo = this.state.todoList.filter(
-      (element, elementIndex) => elementIndex !== index
+      (element, elementIndex) => elementIndex !== itemId
     );
     this.setState({ todoList: todo });
   };
 
-  handleCheckbox = (index) => {
+  handleCheckbox = (itemId) => {
     this.setState({
       todoList: this.state.todoList.map((todo, todoIndex) => {
-        if (todoIndex === index) {
+        if (todoIndex === itemId) {
           return {
             ...todo,
             checked: !todo.checked,
@@ -76,9 +76,9 @@ class Todo extends Component {
   render() {
     if (this.props.todoList.length === 0) return <p>No todo items</p>;
 
-    let result = this.props.todoList.map((item, index) => {
+    let todoAppListItems = this.props.todoList.map((item, itemId) => {
       return (
-        <div key={index}>
+        <div key={itemId}>
           <li>
             <label
               style={{ textDecoration: item.checked ? "line-through" : "none" }}
@@ -89,12 +89,12 @@ class Todo extends Component {
               type="checkbox"
               checked={!!item.checked}
               onChange={() => {
-                this.props.handleCheckbox(index);
+                this.props.handleCheckbox(itemId);
               }}
             />
             <button
               onClick={() => {
-                this.props.deleteTodo(index);
+                this.props.deleteTodo(itemId);
               }}
             >
               Delete
@@ -105,7 +105,7 @@ class Todo extends Component {
     });
     return (
       <div>
-        <ul>{result}</ul>
+        <ul>{todoAppListItems}</ul>
       </div>
     );
   }

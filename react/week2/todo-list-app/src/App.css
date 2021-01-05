@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+  background-color: rgb(71, 192, 240);
+  min-height: 500px;
+  width: 700px;
+  margin: 20px auto;
+}
+
+body {
+  background-color: rgb(227, 252, 252);
+}
+
+li {
+  color: #fff;
+  width: 300px;
+  margin: 20px auto;
+  padding-right: 20px;
+  height: 50px;
+  background-color: #9a2dff;
+  border-radius: 5px;
+  word-spacing: 2px;
+}
+
+label {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+button {
+  background-color: #2f76f8;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 8px 30px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+input[type="checkbox"]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #e9e9e9;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}

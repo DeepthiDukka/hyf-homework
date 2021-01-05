@@ -1,0 +1,111 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #9bda60;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h1, p {
+  color: rgb(12, 10, 10);
+}
+li {
+  list-style: none;
+}
+.user {
+  display: flex;
+  flex-wrap: wrap;
+}
+.user li {
+  width: 300px;
+  margin: 0 auto;
+  background: white;
+  display: flex;
+  align-items: center;
+  margin-top: 0.5em;
+  border-radius: 10px;
+  font-size: 18px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+}
+.user img {
+  width:70px;
+  height: 70px;
+  margin-right: 1em;
+  border-radius: 50%;
+}
+.home input {
+ height: 15px;
+ padding: 5px;
+ border-radius: 20px;
+}
+
+.home ul li a {
+  color: black;
+}
+.About, .home, .homelink, .userProfile {
+  text-align: center;
+  font-size: 22px;
+  color: black;
+  padding: 20px;
+}
+.About img {
+  width: 300px;
+}
+.About a, .home a, .homelink a {
+  color: black;
+  background: white;
+  border: 1px solid white;
+  text-decoration: none;
+  border-radius: 15px;
+  padding: 4px;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.4);
+}
+
+.userProfile img {
+  width: 200px;
+}
+.userProfile a {
+  text-decoration: none;
+   color: black;
+   border: 1px solid black;
+}
+.userProfile {
+ box-shadow: 0px 3px 15px rgba(0,0,0,0.4);
+ width: 400px;
+ margin: 0 auto;
+}
+.home {
+ background: rgb(67, 6, 69);
+ color: white;
+}
